@@ -35,4 +35,6 @@ jobs:
         shell: bash
       - name: Send Notification to slack
         run: curl -X POST -H 'Content-type:application/json' --data '{"text":"Commit Message - ${{ github.event.head_commit.message}} and committed By ${{ github.actor }}"}' https://hooks.slack.com/services/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
+      - name: Send Notification to slack
+        run: curl -X POST -H 'Content-type:application/json' --data '{"blocks":[{"type":"header","text":{"type":"plain_text","text":"Github actions 😃","emoji":true}},{"type":"section","fields":[{"type":"mrkdwn","text":"*Type:*\nPush Event"},{"type":"mrkdwn","text":"*Created by:*\n${{ github.actor }}"}]},{"type":"section","fields":[{"type":"mrkdwn","text":"*Commit URL :*\n ${{github.event.commits[0].url}}"}]},{"type":"section","text":{"type":"mrkdwn","text":"Commit Message:${{github.event.commits[0].url}}"}},{"type":"section","text":{"type":"mrkdwn","text":"TimeStamp:${{github.event.commits[0].timestamp}}"}}]}' https://hooks.slack.com/services/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
      
