@@ -29,5 +29,5 @@ jobs:
       - name: Run a one-line script
         run: echo "${{ github.event.head_commit.message }}"
       - name: Send Notification to slack
-        run: curl -X POST -H 'Content-type:application/json' --data '{"text":"Hello, World!"}' https://hooks.slack.com/services/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
+        run: curl -X POST -H 'Content-type:application/json' --data '{"text":"Commit Message - ${{ github.event.head_commit.message}} and committed By ${{ github.actor }}"}' https://hooks.slack.com/services/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
      
